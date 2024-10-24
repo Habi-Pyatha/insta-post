@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy", as: "logout"
   resources :posts do
     resources :comments
+    resources :upvotes, only: :create, controller: "posts/upvotes"
+    resources :downvotes, only: :create, controller: "posts/downvotes"
   end
+
+  
 end
